@@ -1,4 +1,3 @@
-package vars
 /*library('chaos-framework-library').constants.APIGroovy
 library('chaos-framework-library').constants.Credentials
 library('chaos-framework-library').utility.APIReqBuilder
@@ -8,12 +7,12 @@ library('chaos-framework-library').utility.VMWareMangle.ReqMapper.DiskIORequestO
 library('chaos-framework-library').utility.VMWareMangle.ReqMapper.MemoryRequestObj*/
 
 /**
- * vars.CustomOrchestrator
+ * CustomOrchestrator
  *
  * @param gameplay
  * @return
  */
-def call(Map config) {
+def call() {
     node {
         stage('Clean Workspace') {
             cleanWs()
