@@ -12,7 +12,7 @@ library('chaos-framework-library').utility.VMWareMangle.ReqMapper.MemoryRequestO
  * @param gameplay
  * @return
  */
-def call(gameplay) {
+def call(Map config) {
     node {
         stage('Clean Workspace') {
             cleanWs()
