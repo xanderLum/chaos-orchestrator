@@ -8,7 +8,7 @@ library('chaos-framework-library').utility.VMWareMangle.ReqMapper.DiskIORequestO
 library('chaos-framework-library').utility.VMWareMangle.ReqMapper.MemoryRequestObj*/
 
 /**
- * vars.Orchestrator
+ * vars.CustomOrchestrator
  *
  * @param gameplay
  * @return

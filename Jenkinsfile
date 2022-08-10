@@ -1,6 +1,6 @@
 @Library('chaos-framework-library') _
 
-Orchestrator(
+CustomOrchestrator(
     [
         numBuildToKeep: '5',
         param: 'test'
