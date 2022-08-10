@@ -1,3 +1,4 @@
+package vars
 /*library('chaos-framework-library').constants.APIGroovy
 library('chaos-framework-library').constants.Credentials
 library('chaos-framework-library').utility.APIReqBuilder
@@ -7,7 +8,7 @@ library('chaos-framework-library').utility.VMWareMangle.ReqMapper.DiskIORequestO
 library('chaos-framework-library').utility.VMWareMangle.ReqMapper.MemoryRequestObj*/
 
 /**
- * Orchestrator
+ * vars.Orchestrator
  *
  * @param gameplay
  * @return
