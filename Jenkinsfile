@@ -1,3 +1,8 @@
 @Library('chaos-framework-library') _
 
-Orchestrator ("Gameday Scenario ORT")
+Orchestrator(
+    [
+        numBuildToKeep: '5',
+        param: 'test'
+    ]
+)

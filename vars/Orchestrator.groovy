@@ -20,7 +20,6 @@ def call(Map config) {
         }
         stage('Checkout') {
             checkout scm
-            echo "Executing ${gameplay}"
         }
 
         stage('Inject JBoss Server in Group A with 25% CPU and 25% RAM for 10 seconds') {
