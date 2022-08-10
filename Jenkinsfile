@@ -2,6 +2,6 @@
 def orchestrator
 
 node {
-    orchestrator = load 'CustomOrchestrator.groovy'
+    orchestrator = load '@script/*/CustomOrchestrator.groovy'
     orchestrator.call()
 }
