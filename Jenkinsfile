@@ -1,3 +1,3 @@
 @Library('chaos-framework-library') _
 
-Orchestrator 'Gameday Scenario ORT'
+Orchestrator ("Gameday Scenario ORT")
