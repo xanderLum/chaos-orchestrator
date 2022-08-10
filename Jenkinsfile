@@ -1,3 +1,7 @@
 @Library('chaos-framework-library') _
-def orchestrator = load 'CustomOrchestrator.groovy'
-orchestrator.call()
+def orchestrator
+
+node {
+    orchestrator = load 'CustomOrchestrator.groovy'
+    orchestrator.call()
+}
