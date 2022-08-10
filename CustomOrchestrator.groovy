@@ -14,12 +14,12 @@ library('chaos-framework-library').utility.VMWareMangle.ReqMapper.MemoryRequestO
  */
 def call() {
     node {
-        stage('Clean Workspace') {
+        /*stage('Clean Workspace') {
             cleanWs()
         }
         stage('Checkout') {
             checkout scm
-        }
+        }*/
 
         stage('Inject JBoss Server in Group A with 25% CPU and 25% RAM for 10 seconds') {
             try {
