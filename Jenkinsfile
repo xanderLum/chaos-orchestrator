@@ -24,6 +24,7 @@ pipeline {
                     ochestrator.call()
                     }
             }
+        }
     }
    /*  cleanWs()
     checkout scm
