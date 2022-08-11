@@ -11,8 +11,10 @@ def call() {
         try {
             echo "loading chaos-framework-library utility.ChaosUtil"
             def chaosUtil = chaosFramework.utility.ChaosUtil
-            echo "loading chaos-framework-library utility.VMWareMangle.ReqMapper.CPURequestObj"
-            def reqMapper = chaosFramework.utility.VMWareMangle.ReqMapper.CPURequestObj.new("remote-tomcat", null, "remote-tomcat", null, "cpu")
+            echo "loading chaos-framework-library utility.VMWareMangle.ReqMapper"
+            def reqMapper = chaosFramework.utility.VMWareMangle.ReqMapper
+            echo "instantiating new CPURequestObj"
+            def cpuReq = reqMapper.CPURequestObj.new("remote-tomcat", null, "remote-tomcat", null, "cpu")
             echo "cpuReq: ${reqMapper}"
 
             echo "Injecting Cpu fault"
