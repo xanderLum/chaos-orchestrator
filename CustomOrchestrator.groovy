@@ -1,5 +1,3 @@
-def final chaosFramework = library 'chaos-framework-library'
-
 /**
  * CustomOrchestrator
  *
@@ -8,6 +6,8 @@ def final chaosFramework = library 'chaos-framework-library'
  */
 def call() {
 //    node {
+    def final chaosFramework = library 'chaos-framework-library'
+    
     stage('Inject JBoss Server in Group A with 25% CPU and 25% RAM for 10 seconds') {
         try {
             echo "loading chaos-framework-library utility.ChaosUtil"
