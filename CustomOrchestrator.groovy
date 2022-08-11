@@ -7,47 +7,30 @@ def call() {
     stage('checkout') {
         checkout scm
     }
-    stage('Inject JBoss Server in Group A with 25% CPU and 25% RAM for 10 seconds') {
+    stage('Inject JBoss Server in Group A with 100% CPU and 90% RAM for 10 seconds') {
+        echo "loading chaos-framework-library utility.ChaosUtil"
+        def chaosUtil = chaosFramework.utility.ChaosUtil
+
         try {
-            echo "loading chaos-framework-library utility.ChaosUtil"
-            def chaosUtil = chaosFramework.utility.ChaosUtil
             echo "Injecting Cpu fault"
-            echo "executing ${chaosUtil.injectCPUFault(this, "remote-tomcat", 1, "remote-tomcat", null, "cpu", 100)}"
+            //params:
+            //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, cpuLoad
+            echo "executing ${chaosUtil.injectCPUFault(this, "remote-tomcat", 10, "remote-tomcat", null, "cpu", 100)}"
+        } catch (Exception e) {
+            println e.getMessage()
+        }
+
+        try {
+            echo "Injecting Memory fault"
+            //params:
+            //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, memoryLoad
+            echo "executing ${chaosUtil.injectMemoryFault(this, "remote-tomcat", 10, "remote-tomcat", null, "memory", 90)}"
 
         } catch (Exception e) {
             println e.getMessage()
         }
     }
-
-    /*stage('Inject JBoss Server in Group A with 25% CPU and 25% RAM for 10 seconds') {
-        steps{
-            script{
-                def ochestrator = load 'CustomOrchestrator.groovy'
-                ochestrator.call()
-            }
-        }
-    }*/
 }
-/*  cleanWs()
- checkout scm
- orchestrator = load 'CustomOrchestrator.groovy'
- orchestrator.call() */
 
-/*stage('Inject JBoss Server in Group A with 25% CPU and 25% RAM for 10 seconds') {
-    try {
-        echo "loading chaos-framework-library utility.ChaosUtil"
-        def chaosUtil = chaosFramework.utility.ChaosUtil
-        echo "loading chaos-framework-library utility.VMWareMangle.ReqMapper.CPURequestObj"
-        def reqMapper = chaosFramework.utility.VMWareMangle.ReqMapper.CPURequestObj.new("remote-tomcat", null, "remote-tomcat", null, "cpu")
-        echo "cpuReq: ${reqMapper}"
-
-        echo "Injecting Cpu fault"
-        echo "cpuRequestObj : ${cpuRequestObj}"
-        echo "executing ${chaosFramework.utility.ChaosUtil.injectCPUFault(this, cpuRequestObj)}"
-
-    } catch (Exception e) {
-        println e.getMessage()
-    }
-}*/
 return this
 
