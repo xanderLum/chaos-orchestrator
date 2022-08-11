@@ -11,15 +11,8 @@ def call() {
         try {
             echo "loading chaos-framework-library utility.ChaosUtil"
             def chaosUtil = chaosFramework.utility.ChaosUtil
-            echo "loading chaos-framework-library utility.VMWareMangle"
-            def vmwareMangle = chaosFramework.utility.VMWareMangle
-            echo "instantiating new CPURequestObj"
-            def cpuReq = vmwareMangle.CPURequestObj.new("remote-tomcat", null, "remote-tomcat", null, "cpu")
-            echo "cpuReq: ${reqMapper}"
-
             echo "Injecting Cpu fault"
-            echo "cpuRequestObj : ${cpuRequestObj}"
-            echo "executing ${chaosUtil.injectCPUFault(this, cpuRequestObj)}"
+            echo "executing ${chaosUtil.injectCPUFault(this, "remote-tomcat", null, "remote-tomcat", null, "cpu", 100)}"
 
         } catch (Exception e) {
             println e.getMessage()
