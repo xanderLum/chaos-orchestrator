@@ -52,7 +52,6 @@ def call() {
  checkout scm
  orchestrator = load 'CustomOrchestrator.groovy'
  orchestrator.call() */
-}
 
 /*stage('Inject JBoss Server in Group A with 25% CPU and 25% RAM for 10 seconds') {
     try {
