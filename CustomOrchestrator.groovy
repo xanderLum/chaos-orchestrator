@@ -1,6 +1,6 @@
-final chaosFramework = library('chaos-framework-library')
-
 def call() {
+    final chaosFramework = library('chaos-framework-library')
+
     stage('cleanWs') {
         cleanWs()
     }
