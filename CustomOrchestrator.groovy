@@ -14,7 +14,7 @@ def call() {
             echo "loading chaos-framework-library utility.VMWareMangle"
             def vmwareMangle = chaosFramework.utility.VMWareMangle
             echo "instantiating new CPURequestObj"
-            def cpuReq = vmwareMangle.ReqMapper.CPURequestObj.new("remote-tomcat", null, "remote-tomcat", null, "cpu")
+            def cpuReq = vmwareMangle.CPURequestObj.new("remote-tomcat", null, "remote-tomcat", null, "cpu")
             echo "cpuReq: ${reqMapper}"
 
             echo "Injecting Cpu fault"
