@@ -3,7 +3,17 @@
 pipeline {
     agent any
     stages{
-        stage('cleanWs'){
+        stage('ready'){
+            steps{
+                script{
+                    /* cleanWs()
+                    checkout scm */
+                    orchestrator = load 'CustomOrchestrator.groovy'
+                    orchestrator.call()
+                    }
+            }
+        }
+        /* stage('cleanWs'){
             steps{
                 script{
                  cleanWs()
@@ -24,7 +34,7 @@ pipeline {
                     ochestrator.call()
                     }
             }
-        }
+        } */
     }
    /*  cleanWs()
     checkout scm
