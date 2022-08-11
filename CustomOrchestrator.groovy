@@ -1,4 +1,4 @@
-final chaosFramework = library 'chaos-framework-library'
+def final chaosFramework = library 'chaos-framework-library'
 
 /**
  * CustomOrchestrator
