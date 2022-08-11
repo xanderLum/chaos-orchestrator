@@ -30,6 +30,30 @@ def call() {
             println e.getMessage()
         }
     }
+
+    stage('Inject JBoss Server in Group A with 8GB DiskIO and 90% DiskSpace for 10 seconds') {
+        echo "loading chaos-framework-library utility.ChaosUtil"
+        def chaosUtil = chaosFramework.utility.ChaosUtil
+
+        try {
+            echo "Injecting DiskIO fault"
+            //params:
+            //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, cpuLoad
+            echo "executing ${chaosUtil.injectDiskIOFault(this, "remote-tomcat", 10, "remote-tomcat", null, "diskIO", 100)}"
+        } catch (Exception e) {
+            println e.getMessage()
+        }
+
+        try {
+            echo "Injecting DiskSpace fault"
+            //params:
+            //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, memoryLoad
+            echo "executing ${chaosUtil.injectMemoryFault(this, "remote-tomcat", 10, "remote-tomcat", null, "diskSpace", 90)}"
+
+        } catch (Exception e) {
+            println e.getMessage()
+        }
+    }
 }
 
 return this
