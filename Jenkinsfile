@@ -2,6 +2,7 @@
 def orchestrator
 
 pipeline {
+    agent any
     stages{
         stage('cleanWs'){
             steps{
