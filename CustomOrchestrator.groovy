@@ -48,7 +48,7 @@ def call() {
             echo "Injecting DiskSpace fault"
             //params:
             //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, memoryLoad
-            echo "executing ${chaosUtil.injectMemoryFault(this, "remote-tomcat", 10, "remote-tomcat", null, "diskSpace", 90)}"
+            echo "executing ${chaosUtil.injectDiskSpaceFault(this, "remote-tomcat", 10, "remote-tomcat", null, "diskSpace", 90)}"
 
         } catch (Exception e) {
             println e.getMessage()
