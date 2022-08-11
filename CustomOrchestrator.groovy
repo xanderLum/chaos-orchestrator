@@ -12,7 +12,7 @@ def call() {
             echo "loading chaos-framework-library utility.ChaosUtil"
             def chaosUtil = chaosFramework.utility.ChaosUtil
             echo "Injecting Cpu fault"
-            echo "executing ${chaosUtil.injectCPUFault(this, "remote-tomcat", 0, "remote-tomcat", null, "cpu", 100)}"
+            echo "executing ${chaosUtil.injectCPUFault(this, "remote-tomcat", 1, "remote-tomcat", null, "cpu", 100)}"
 
         } catch (Exception e) {
             println e.getMessage()
