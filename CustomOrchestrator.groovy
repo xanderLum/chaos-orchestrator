@@ -30,7 +30,9 @@ def call() {
                 def cpuRequestObj = library('chaos-framework-library').utility.VMWareMangle.ReqMapper.CPURequestObj.new("remote-tomcat", null, "remote-tomcat", null, "cpu")
                 //        super(endpointName, timeoutInMilliseconds, id, injectionHomeDir, taskName)
                 echo "Injecting Cpu fault"
-                chaosUtil.injectCPUFault(this, cpuRequestObj)
+                echo "cpuRequestObj : ${cpuRequestObj}"
+                echo "executing ${chaosUtil.injectCPUFault(this, cpuRequestObj)}"
+                
             } catch (Exception e) {
                 println e.getMessage()
             }
