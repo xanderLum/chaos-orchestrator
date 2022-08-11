@@ -39,7 +39,7 @@ def call() {
             echo "Injecting DiskIO fault"
             //params:
             //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, cpuLoad
-            echo "executing ${chaosUtil.injectDiskIOFault(this, "remote-tomcat", 10, "remote-tomcat", null, "diskIO", 100)}"
+            echo "executing ${chaosUtil.injectDiskIOFault(this, "remote-tomcat", 10, "remote-tomcat", null, "diskIO", null, "/home/")}"
         } catch (Exception e) {
             println e.getMessage()
         }
