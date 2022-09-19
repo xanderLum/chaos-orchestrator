@@ -1,5 +1,7 @@
 def call() {
+    echo "loading chaos-framework-library"
     final chaosFramework = library('chaos-framework-library')
+    def chaosUtil = chaosFramework.utility.ChaosUtil
 
     stage('cleanWs') {
         cleanWs()
@@ -7,48 +9,36 @@ def call() {
     stage('checkout') {
         checkout scm
     }
-    stage('Inject JBoss Server in Group A with 100% CPU and 90% RAM for 10 seconds') {
-        echo "loading chaos-framework-library utility.ChaosUtil"
-        def chaosUtil = chaosFramework.utility.ChaosUtil
-
+    /*stage('Inject JBoss Server in endpoint LSTSCINFJB0AV25 with 100% CPU and 3GB DiskIO parallel for 35 minutes') {
         try {
-            echo "Injecting Cpu fault"
-            //params:
-            //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, cpuLoad
-            echo "executing ${chaosUtil.injectCPUFault(this, "remote-tomcat", 10, "remote-tomcat", null, "cpu", 100)}"
-        } catch (Exception e) {
-            println e.getMessage()
-        }
-
-        try {
-            echo "Injecting Memory fault"
-            //params:
-            //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, memoryLoad
-            echo "executing ${chaosUtil.injectMemoryFault(this, "remote-tomcat", 10, "remote-tomcat", null, "memory", 90)}"
+            echo "Injecting CPU fault"
+            echo "executing ${chaosUtil.injectCPUFault(this, "LSTSCINFJB0AV25", 2.1e+6, "LSTSCINFJB0AV25", null, "iteration3-cpu", 100)}"
 
         } catch (Exception e) {
             println e.getMessage()
         }
-    }
-
-    stage('Inject JBoss Server in Group A with 8GB DiskIO and 90% DiskSpace for 10 seconds') {
-        echo "loading chaos-framework-library utility.ChaosUtil"
-        def chaosUtil = chaosFramework.utility.ChaosUtil
 
         try {
             echo "Injecting DiskIO fault"
-            //params:
-            //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, cpuLoad
-            echo "executing ${chaosUtil.injectDiskIOFault(this, "remote-tomcat", 10, "remote-tomcat", null, "diskIO", 0, "/home/")}"
+            echo "executing ${chaosUtil.injectDiskIOFault(this, "LSTSCINFJB0AV25", 2.1e+6, "LSTSCINFJB0AV25", null, "iteration3-diskIO", 3e+6, "/home/trps.mas.gov.sg/a_jbs")}"
+
+        } catch (Exception e) {
+            println e.getMessage()
+        }
+    }*/
+
+    stage('Inject MySQL DB Server Primary RW node in endpoint LSTSCINFDB0EV04 with 100% CPU and 3GB DiskIO parallel for 35 minutes') {
+        try {
+            echo "Injecting CPU fault"
+            echo "executing ${chaosUtil.injectCPUFault(this, "LSTSCINFJB0AV25", 2.1e+6, "LSTSCINFJB0AV25", null, "iteration3-cpu", 100, false, "", 1, "schedId-1", "schedulingTest")}"
+
         } catch (Exception e) {
             println e.getMessage()
         }
 
         try {
-            echo "Injecting DiskSpace fault"
-            //params:
-            //this exec, "endpointname", timeout in ms, id, injectionHomeDir, taskname, memoryLoad
-            echo "executing ${chaosUtil.injectDiskSpaceFault(this, "remote-tomcat", 10, "remote-tomcat", null, "diskSpace", 90)}"
+            echo "Injecting DiskIO fault"
+            echo "executing ${chaosUtil.injectDiskIOFault(this, "LSTSCINFJB0AV25", 2.1e+6, "LSTSCINFJB0AV25", null, "iteration3-diskIO", 3e+6, "/home/trps.mas.gov.sg/a_jbs", false, "", 1, "schedId-1", "schedulingTest")}"
 
         } catch (Exception e) {
             println e.getMessage()

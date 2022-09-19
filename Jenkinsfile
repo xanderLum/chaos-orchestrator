@@ -3,12 +3,10 @@
 pipeline {
     agent any
     stages{
-        stage('ready'){
+        stage('Load CustomOrchestratorGrp'){
             steps{
                 script{
-                    /* cleanWs()
-                    checkout scm */
-                    orchestrator = load 'CustomOrchestrator.groovy'
+                    orchestrator = load 'CustomOrchestratorGrp.groovy'
                     orchestrator.call()
                 }
             }
