@@ -18,21 +18,22 @@ def call() {
             //                  String cronExpression, def schedTimeoutInMilliseconds, String schedId, String description)
             echo "executing ${chaosUtil.injectCPUFault(this, "javaapp", 2.1e+6, "javaapp", null, "dbgrp-iteration1-cpu", 100, false, null, 1, "schedId-1", "schedulingTest")}"
 
+            //execute getTaskDetails
+
         } catch (Exception e) {
             println e.getMessage()
         }
 
-        try {
+        /*try {
             echo "Injecting Memory fault"
             echo "executing ${chaosUtil.injectMemoryFault(this, "javaapp", 2.1e+6, "javaapp", null, "dbgrp-iteration1-memory", 90, false, null, 1, "schedId-1", "schedulingTest")}"
 
         } catch (Exception e) {
             println e.getMessage()
-        }
+        }*/
     }
 
-    stage('Inject DB MySQL Server in endpoint javaapp with 3GB DiskIO and 90% DiskSpace parallel for 35minutes seconds') {
-
+    /*stage('Inject DB MySQL Server in endpoint javaapp with 3GB DiskIO and 90% DiskSpace parallel for 35minutes seconds') {
         try {
             echo "Injecting DiskIO fault"
             echo "executing ${chaosUtil.injectDiskIOFault(this, "javaapp", 2.1e+6, "javaapp", null, "dbgrp-iteration1-diskIO", 3e+6, "/home/trps.mas.gov.sg/a_osp_chaos", false, null, 1, "schedId-1", "schedulingTest")}"
@@ -47,7 +48,7 @@ def call() {
         } catch (Exception e) {
             println e.getMessage()
         }
-    }
+    }*/
 }
 
 return this
